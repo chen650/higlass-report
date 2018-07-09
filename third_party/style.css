@@ -6,10 +6,10 @@
   width: 100%;
 }
 
-#sections {
+#scrollingText {
   position: relative;
   display: inline-block;
-  width: calc(25%);
+  width: calc(30%);
   min-width: calc(100% - 100vh * 660 / 500);
   padding: 10px;
   margin-bottom: calc(100vh - 100px);
@@ -20,7 +20,7 @@
   display: inline-block;
   position: fixed;
   top: 0px;
-  width: calc(75%);
+  width: calc(65%);
   max-width: calc(100vh * 660 / 500);
 }
 

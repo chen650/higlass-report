@@ -3,7 +3,7 @@
 // (in particular, see lines 765-793)
 
 
-function scrollerDisplay(container, stepClass, activateFunctions, updateFunctions) {
+function scrollerDisplay(container, stepClass, activateFunctions) {
 
   var lastIndex = -1
   var activeIndex = 0
@@ -28,10 +28,6 @@ function scrollerDisplay(container, stepClass, activateFunctions, updateFunction
           return (i == index) ? stepClass + ' highlighted-step' : stepClass
         })
 
-  })
-
-  scroll.on('progress', function(index, progress){
-    updateFunctions[index](progress)
   })
 
 }
