@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
 <!-- TODO: (////)
-* revert when scrolling upwards
-* undo zoom when loading a new view config
+* error handling for edge case: throws error if user closes a view that later needs to be zoomed in
+* fix bug: main.js:73439 Uncaught TypeError: Cannot read property 'trackDefObjects' of null
 -->
 
 <!-- In this commit: 
-* parsing new JSON format in accordance with updated higlass-generate
+  parsing for updated JSON 
 -->
 
 <html class="no-js" lang="en">
@@ -14,12 +14,12 @@
   <meta charset="utf-8"> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=500" />
-  <title>Generated HiGlass</title>
+  <title>HiGlass Report</title>
 
+<link rel="stylesheet" href="https://unpkg.com/higlass@1.0.1/dist/styles/hglib.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="third_party/style.css"> 
   <link rel="stylesheet" href="./node_modules/higlass/app/styles/page.css">
-  <link rel="stylesheet" href="https://unpkg.com/higlass@1.0.1/dist/styles/hglib.css" type="text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.min.js"></script>
@@ -28,6 +28,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.31.0/react-bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+   <!-- Font Awesome JS -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
 
   <script src="./dist/main.js"></script>
 
@@ -40,14 +45,15 @@
     <div id="scrollingText"> 
       <!-- Text -->
       <div id="sections"></div>
-
-       <!-- HiGlass -->
-      <div style="margin: auto; width: 50%;">
-        <div
-          id="development-demo"
-          style="top: 1rem; bottom: 1rem; right: 1rem">
-        </div>
+    </div>
+        <!-- Media -->
+    <div id="media"> 
+      <div id="hg"> <!-- HiGlass -->
       </div>
+      <div id="img"></div> <!-- Image -->
+      <iframe id='yt' width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> <!-- Video -->
+      <div id="fig"></div>
+      <video id='vid' width="560" height="315" autoplay type="video/mp4"></video>
     </div>
   </div>
 
@@ -61,7 +67,9 @@
 <script src="/third_party/scrollerAddOns.js"></script>
 
 <!-- coordinates overall animation -->
-<script src="src/editHTML.js"></script>
 <script src="src/loadHg.js"></script>
+<script src="src/scrollDown.js"></script>
+<script src="src/scrollUp.js"></script>
+<script src="src/editHTML.js"></script>
 
 </html>
