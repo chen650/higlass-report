@@ -1,6 +1,6 @@
 {
   "name": "higlass-report",
-  "version": "0.1",
+  "version": "0.1.0",
   "author": "Angela Chen <chen650@usc.edu>",
   "dependencies": {
     "babel-core": "^6.26.3",
