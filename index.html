@@ -48,18 +48,24 @@
     </div>
         <!-- Media -->
     <div id="media"> 
-      <div id="hg"> <!-- HiGlass -->
-      </div>
+      <div id="hg"></div> <!-- HiGlass --> 
+      <div id="text"></div>
       <div id="img"></div> <!-- Image -->
-      <iframe id='yt' width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> <!-- Video -->
-      <div id="fig"></div>
-      <video id='vid' width="560" height="315" autoplay type="video/mp4"></video>
+      <div id="ytMedia"> <!-- Youtube Video -->
+        <iframe id='yt' width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div id="ytCaption" class='caption'></div>
+      </div> 
+      <div id="vidMedia"> <!-- Video -->
+        <video id='vid' width="560" height="315" autoplay type="video/mp4"></video>
+        <div id="vidCaption" class='caption'></div>
+        </div>
     </div>
   </div>
 
 </body>
 
 <script src="src/editCSS.js"></script>
+<script src="src/loadHg.js"></script>
 
 <!-- Jim Vallandingham's scroller scripts from https://github.com/stitchfix/hello-scrollytelling -->
 <script src="/third_party/scroller.js"></script>
@@ -67,7 +73,6 @@
 <script src="/third_party/scrollerAddOns.js"></script>
 
 <!-- coordinates overall animation -->
-<script src="src/loadHg.js"></script>
 <script src="src/scrollDown.js"></script>
 <script src="src/scrollUp.js"></script>
 <script src="src/editHTML.js"></script>

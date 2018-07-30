@@ -7,47 +7,49 @@ for (var tNum in globalVars.details.textSections) {
 
 scrollerDisplay(d3.select('#graphic'), 'step', activateFunctions, reverseFunctions)
 
-globalVars.addImg = function(url) {
-  document.getElementById('fig').style.display = 'none';
+globalVars.addText = function(md) {
+  document.getElementById('text').style.display = 'block';
+  document.getElementById('img').style.display = 'none';
+  document.getElementById('hg').style.display = 'none';
+  document.getElementById('vidMedia').style.display = 'none';
+  document.getElementById('ytMedia').style.display = 'none';
+  text.innerHTML = "<div class='mainText'>" + md + "</div>";
+}
+
+globalVars.addImg = function(arr) {
+  document.getElementById('text').style.display = 'none';
   document.getElementById('img').style.display = 'block';
   document.getElementById('hg').style.display = 'none';
-  document.getElementById('vid').style.display = 'none';
-  document.getElementById('yt').style.display = 'none';
-  img.innerHTML = "<img src=\"" + url + "\">";
+  document.getElementById('vidMedia').style.display = 'none';
+  document.getElementById('ytMedia').style.display = 'none';
+  img.innerHTML = "<img class='mainImg' src=\"" + arr[0] + "\">" + "<div class='caption'>" + arr[1] + "</div>";
 }
 
-globalVars.addYt = function(id) {
-  document.getElementById('fig').style.display = 'none';
+globalVars.addYt = function(arr) {
+  document.getElementById('text').style.display = 'none';
   document.getElementById('img').style.display = 'none';
   document.getElementById('hg').style.display = 'none';
-  document.getElementById('vid').style.display = 'none';
-  document.getElementById('yt').style.display = 'block';
-  var url = 'https://www.youtube.com/embed/' + id;
+  document.getElementById('vidMedia').style.display = 'none';
+  document.getElementById('ytMedia').style.display = 'block';
+  var url = 'https://www.youtube.com/embed/' + arr[0];
   $('#yt').attr('src',url);
+  ytCaption.innerHTML = arr[1];
 }
 
-globalVars.addVid = function(url) {
-  document.getElementById('fig').style.display = 'none';
+globalVars.addVid = function(arr) {
+  document.getElementById('text').style.display = 'none';
   document.getElementById('img').style.display = 'none';
   document.getElementById('hg').style.display = 'none';
-  document.getElementById('vid').style.display = 'block';
-  document.getElementById('yt').style.display = 'none';
-  $('#vid').attr('src',url);
-}
-
-globalVars.addFig = function(arr) {
-  document.getElementById('fig').style.display = 'block';
-  document.getElementById('img').style.display = 'none';
-  document.getElementById('hg').style.display = 'none';
-  document.getElementById('vid').style.display = 'none';
-  document.getElementById('yt').style.display = 'none';
-  fig.innerHTML = "<img src=\"" + arr[0] + "\">" + arr[1];
+  document.getElementById('vidMedia').style.display = 'block';
+  document.getElementById('ytMedia').style.display = 'none';
+  $('#vid').attr('src',arr[0]);
+  vidCaption.innerHTML = arr[1];
 }
 
 globalVars.addHg = function() {
-  document.getElementById('fig').style.display = 'none';
+  document.getElementById('text').style.display = 'none';
   document.getElementById('img').style.display = 'none';
   document.getElementById('hg').style.display = 'inline-block';
-  document.getElementById('vid').style.display = 'none';
-  document.getElementById('yt').style.display = 'none';
+  document.getElementById('vidMedia').style.display = 'none';
+  document.getElementById('ytMedia').style.display = 'none';
 }
